@@ -4,9 +4,11 @@ class CreateProfiles < ActiveRecord::Migration[7.1]
       t.string :discord_id
       t.string :steam_id
       t.string :du_charname
-      t.integer :user_id
 
       t.timestamps
     end
+
+    add_index :profiles, :discord_id
+    add_index :profiles, :steam_id
   end
 end

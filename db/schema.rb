@@ -10,14 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_11_174055) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_16_193244) do
   create_table "profiles", force: :cascade do |t|
     t.string "discord_id"
     t.string "steam_id"
     t.string "du_charname"
-    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id", null: false
+    t.index ["discord_id"], name: "index_profiles_on_discord_id"
+    t.index ["steam_id"], name: "index_profiles_on_steam_id"
+    t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -28,8 +31,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_11_174055) do
     t.string "confirmation_token", limit: 128
     t.string "remember_token", limit: 128, null: false
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
-    t.index ["email"], name: "index_users_on_email"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["id"], name: "index_users_on_id", unique: true
     t.index ["remember_token"], name: "index_users_on_remember_token", unique: true
   end
 
+  add_foreign_key "profiles", "users"
 end
