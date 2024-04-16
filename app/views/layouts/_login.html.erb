@@ -1,0 +1,8 @@
+    <% if signed_in? %>
+      Signed in as: <%= current_user.email %>
+      <%= button_to get_prompt( :disconnect), disconnect_path, method: :delete %>
+    <% else %>
+      <% if (not_on_login_page(current_page?) && not_on_account_creation_page(current_page?)) %>
+        <%= link_to get_prompt( :connect), connect_path, class: 'login_link' %>
+      <% end %>
+    <% end %>

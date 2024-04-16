@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  discord_id: MyString
+  steam_id: MyString
+  du_charname: MyString
+  user_id: 1
+
+two:
+  discord_id: MyString
+  steam_id: MyString
+  du_charname: MyString
+  user_id: 1
