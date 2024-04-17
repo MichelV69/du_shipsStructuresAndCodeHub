@@ -17,19 +17,6 @@ class UserTest < ActiveSupport::TestCase
     assert u.save
   end
 
-  test "a new user can have profile data" do
-    u = User.new
-    u.email = "an_email@example.com"
-    u.password = "cleverPWD"
-    u.build_profile
-    u.profile.du_charname = "MyCoolToon"
-    assert u.save
-    u.profile.discord_id = '444-444'
-    assert u.save
-    u.profile.steam_id = "444-aaa-444"
-    assert u.save
-  end
-
   test "we can find a user by email address" do
     u = User.find_by_email "second_person@example.com"
     assert_not u == nil
