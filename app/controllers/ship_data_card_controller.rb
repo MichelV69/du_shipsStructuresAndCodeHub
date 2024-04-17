@@ -1,0 +1,2 @@
+class ShipDataCardController < ApplicationController
+end

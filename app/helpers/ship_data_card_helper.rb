@@ -1,0 +1,2 @@
+module ShipDataCardHelper
+end
