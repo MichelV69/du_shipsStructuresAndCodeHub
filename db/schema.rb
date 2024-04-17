@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_17_024234) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_17_181156) do
   create_table "profiles", force: :cascade do |t|
     t.string "discord_id"
     t.string "steam_id"
@@ -25,7 +25,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_17_024234) do
 
   create_table "ship_data_cards", force: :cascade do |t|
     t.integer "user_id"
-    t.string "design_name"
+    t.string "design_name", null: false
     t.integer "price_blueprint"
     t.integer "price_token"
     t.integer "core_size"
