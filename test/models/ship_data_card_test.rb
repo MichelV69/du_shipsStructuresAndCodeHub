@@ -47,7 +47,7 @@ class ShipDataCardTest < ActiveSupport::TestCase
     assert sdc3.save
 
     scdc_list = @u.ship_data_cards.all
-    assert scdc_list.count == 3
+    assert_equal 3, scdc_list.count
   end
 
   test  "model converts core_size to text" do
