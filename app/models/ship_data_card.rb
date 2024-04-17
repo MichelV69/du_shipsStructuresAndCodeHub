@@ -1,6 +1,6 @@
 class ShipDataCard < ApplicationRecord
   belongs_to :user
-  has_many :vehicle_roles
+  has_many :vehicle_roles, dependent: :destroy
 
   def core_size_text
     core_size_text = ["--", "XS", "S", "M", "L"]
