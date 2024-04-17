@@ -32,17 +32,17 @@ class ShipDataCardTest < ActiveSupport::TestCase
 
     sdc1 = ShipDataCard.new
     sdc1.user_id = u.id
-    #sdc1.design_name = "first ship #2"
+    sdc1.design_name = "first ship #2"
     assert sdc1.save
 
     sdc2 = ShipDataCard.new
     sdc2.user_id = u.id
-    #sdc2.design_name = "second ship"
+    sdc2.design_name = "second ship"
     assert sdc2.save
 
     sdc3 = ShipDataCard.new
     sdc3.user_id = u.id
-    #sdc3.design_name = "third ship"
+    sdc3.design_name = "third ship"
     assert sdc3.save
 
     scdc_list = u.ship_data_cards.all
