@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_16_193244) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_17_024024) do
   create_table "profiles", force: :cascade do |t|
     t.string "discord_id"
     t.string "steam_id"
@@ -21,6 +21,19 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_16_193244) do
     t.index ["discord_id"], name: "index_profiles_on_discord_id"
     t.index ["steam_id"], name: "index_profiles_on_steam_id"
     t.index ["user_id"], name: "index_profiles_on_user_id"
+  end
+
+  create_table "ship_data_cards", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "design_name"
+    t.integer "price_blueprint"
+    t.integer "price_token"
+    t.integer "core_size"
+    t.boolean "env_atmosphere"
+    t.boolean "env_ground"
+    t.boolean "space"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
