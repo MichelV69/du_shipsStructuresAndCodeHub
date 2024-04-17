@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_17_193656) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_17_200115) do
   create_table "profiles", force: :cascade do |t|
     t.string "discord_id"
     t.string "steam_id"
@@ -34,6 +34,14 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_17_193656) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "env_space"
+  end
+
+  create_table "table_vehicle_roles", force: :cascade do |t|
+    t.integer "design_id"
+    t.string "role_name"
+    t.text "role_description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
