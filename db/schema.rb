@@ -36,14 +36,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_17_200115) do
     t.boolean "env_space"
   end
 
-  create_table "table_vehicle_roles", force: :cascade do |t|
-    t.integer "design_id"
-    t.string "role_name"
-    t.text "role_description"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "users", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -55,6 +47,14 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_17_200115) do
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["id"], name: "index_users_on_id", unique: true
     t.index ["remember_token"], name: "index_users_on_remember_token", unique: true
+  end
+
+  create_table "vehicle_roles", force: :cascade do |t|
+    t.integer "design_id"
+    t.string "role_name"
+    t.text "role_description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_foreign_key "profiles", "users"
