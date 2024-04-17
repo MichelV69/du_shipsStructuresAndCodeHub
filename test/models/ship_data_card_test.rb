@@ -51,7 +51,7 @@ class ShipDataCardTest < ActiveSupport::TestCase
   end
 
   test  "model converts core_size to text" do
-sdc = ShipDataCard.new
+    sdc = ShipDataCard.new
     sdc.user_id = @u.id
     sdc.design_name = "first ship"
 
@@ -63,6 +63,23 @@ sdc = ShipDataCard.new
     assert_equal "M",  sdc.core_size_text
     sdc.core_size = 4
     assert_equal "L",  sdc.core_size_text
+  end
+
+  test "model correctly answers is_hybrid?" do
+    sdc = ShipDataCard.new
+    sdc.user_id = @u.id
+    sdc.design_name = "first ship"
+
+    assert_not_equal true, sdc.is_hybrid?
+
+    sdc.env_space = true
+    assert_not_equal true, sdc.is_hybrid?
+
+    sdc.env_atmosphere = true
+    assert_equal true, sdc.is_hybrid?
+
+    sdc.env_space = false
+    assert_not_equal true, sdc.is_hybrid?
   end
 
 end
