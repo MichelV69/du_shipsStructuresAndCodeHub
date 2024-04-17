@@ -1,0 +1,15 @@
+1:
+  email: first_person@example.com
+  encrypted_password: ickenziepicken01
+  confirmation_token: yuppenzieyessen01
+  remember_token: noforgeeten01
+2:
+  email: second_person@example.com
+  encrypted_password: ickenziepicken02
+  confirmation_token: yuppenzieyessen02
+  remember_token: noforgeeten02
+3:
+  email: third_person@example.com
+  encrypted_password: ickenziepicken03
+  confirmation_token: yuppenzieyessen03
+  remember_token: noforgeeten03
