@@ -14,7 +14,7 @@ class UserTest < ActiveSupport::TestCase
 
     u.email = "an_email@example.com"
     u.password = "cleverPWD"
-    assert u.save
+    assert u.save!
   end
 
   test "we can find a user by email address" do

@@ -16,11 +16,11 @@ class ProfileTest < ActiveSupport::TestCase
     u.build_profile
 
     u.profile.du_charname = "MyCoolToon"
-    assert u.save
+    assert u.save!
     u.profile.discord_id = '444-444'
-    assert u.save
+    assert u.save!
     u.profile.steam_id = "444-aaa-444"
-    assert u.save
+    assert u.save!
   end
 
 end
