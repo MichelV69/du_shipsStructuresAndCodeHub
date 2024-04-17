@@ -2,7 +2,7 @@ class CreateShipDataCards < ActiveRecord::Migration[7.1]
   def change
     create_table :ship_data_cards do |t|
       t.integer :user_id
-      t.string :design_name
+      t.string  :design_name
       t.integer :price_blueprint
       t.integer :price_token
       t.integer :core_size
