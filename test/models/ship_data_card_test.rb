@@ -1,16 +1,6 @@
 require "test_helper"
 
 class ShipDataCardTest < ActiveSupport::TestCase
-
-  ## t.integer :user_id
-  ## t.string  :design_name
-  ## t.integer :price_blueprint
-  ## t.integer :price_token
-  ## t.integer :core_size
-  ## t.boolean :env_atmosphere
-  ## t.boolean :env_ground
-  ## t.boolean :space
-
   setup do
     @u = User.new
     @u.email = "an_email@example.com"
@@ -23,12 +13,12 @@ class ShipDataCardTest < ActiveSupport::TestCase
 
     assert sdc.respond_to? :user_id
     assert sdc.respond_to? :design_name
-    assert sdc.respond_to? :price_blueprint
-    assert sdc.respond_to? :price_token
     assert sdc.respond_to? :core_size
     assert sdc.respond_to? :env_atmosphere
     assert sdc.respond_to? :env_ground
-    assert sdc.respond_to? :space
+    assert sdc.respond_to? :env_space
+    assert sdc.respond_to? :price_blueprint
+    assert sdc.respond_to? :price_token
   end
 
   test "user can create a ship data card" do
