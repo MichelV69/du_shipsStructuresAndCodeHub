@@ -11,6 +11,19 @@ class ShipDataCardTest < ActiveSupport::TestCase
   ## t.boolean :env_ground
   ## t.boolean :space
 
+  test "sdc model responds to required attributes" do
+    sdc = ShipDataCard.new
+
+    assert sdc.respond_to? :user_id
+    assert sdc.respond_to? :design_name
+    assert sdc.respond_to? :price_blueprint
+    assert sdc.respond_to? :price_token
+    assert sdc.respond_to? :core_size
+    assert sdc.respond_to? :env_atmosphere
+    assert sdc.respond_to? :env_ground
+    assert sdc.respond_to? :space
+  end
+
   test "user can create a ship data card" do
     u = User.new
     u.email = "an_email@example.com"
