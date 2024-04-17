@@ -1,0 +1,2 @@
+class VehicleFeature < ApplicationRecord
+end
