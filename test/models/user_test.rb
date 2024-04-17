@@ -29,4 +29,10 @@ class UserTest < ActiveSupport::TestCase
     u.profile.steam_id = "444-aaa-444"
     assert u.save
   end
+
+  test "we can find a user by email address" do
+    u = User.find_by_email "second_person@example.com"
+    assert_not u == nil
+    assert_not u.id == nil
+  end
 end
