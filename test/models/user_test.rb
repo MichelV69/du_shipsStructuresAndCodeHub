@@ -1,0 +1,19 @@
+require "test_helper"
+
+class UserTest < ActiveSupport::TestCase
+  test "a new user must have an email address & password" do
+    u = User.new
+
+    u.email = nil
+    u.password = "cleverPWD"
+    assert_not u.save
+
+    u.email = "an_email@example.com"
+    u.password = nil
+    assert_not u.save
+
+    u.email = "an_email@example.com"
+    u.password = "cleverPWD"
+    assert u.save
+  end
+end
