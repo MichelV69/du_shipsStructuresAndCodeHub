@@ -51,11 +51,14 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_17_200115) do
 
   create_table "vehicle_roles", force: :cascade do |t|
     t.integer "design_id"
-    t.string "role_name"
-    t.text "role_description"
+    t.integer "role_name"
+    t.string "role_description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "ship_data_cards_id", null: false
+    t.index ["ship_data_cards_id"], name: "index_vehicle_roles_on_ship_data_cards_id"
   end
 
   add_foreign_key "profiles", "users"
+  add_foreign_key "vehicle_roles", "ship_data_cards", column: "ship_data_cards_id"
 end
