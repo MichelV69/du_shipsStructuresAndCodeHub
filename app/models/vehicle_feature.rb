@@ -5,7 +5,7 @@ class VehicleFeature < ApplicationRecord
     rocket_engines: 6, shields: 7, weapons:8, antigrav: 9, tile_scanner: 2}
 
   def set_feature_by_sym symbol
-    self.feature_id = VehicleFeaturesList[symbol]
+    self.feature_id = VehicleFeature::VehicleFeaturesList[symbol]
     if self.feature_id.nil?
       raise ArgumentError, "bad feature index [" + symbol.to_s + "]"
     end
