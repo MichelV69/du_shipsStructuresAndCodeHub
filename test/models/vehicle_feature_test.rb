@@ -22,4 +22,27 @@ class VehicleFeatureTest < ActiveSupport::TestCase
     vf = @u.ship_data_cards.first.vehicle_features.all
     assert_equal 1, vf.count, "Wrong list count"
   end
+
+ test "the user can set multiple features for an SDC" do
+    vf = VehicleFeature.new
+    vf.ship_data_card_id = @sdc.id
+    vf.set_feature_by_sym :detailed_interior
+    assert vf.save!, "Failed to save"
+
+    vf2 = VehicleFeature.new
+    vf2.ship_data_card_id = @sdc.id
+    vf2.set_feature_by_sym :radar_atmo
+    assert vf2.save!, "Failed to save"
+
+    vf3 = VehicleFeature.new
+    vf3.ship_data_card_id = @sdc.id
+    vf3.set_feature_by_sym :radar_space
+    assert vf3.save!, "Failed to save"
+
+    vf_list = @u.ship_data_cards.first.vehicle_features.all
+    assert_equal 3, vf_list.count, "Wrong list count"
+  end
+
+  #{detailed_interior: 1, radar_atmo: 2, radar_space: 3, dsat: 4, warp_drive: 5,
+  #  rocket_engines: 6, shields: 7, weapons:8, antigrav: 9, tile_scanner: 2}
 end
