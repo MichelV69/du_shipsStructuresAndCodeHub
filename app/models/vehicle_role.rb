@@ -6,5 +6,8 @@ class VehicleRole < ApplicationRecord
 
   def set_role_by_sym symbol
     self.role_name = VehicleRolesList[symbol]
+    if self.role_name.nil?
+      raise ArgumentError, "bad role index [" + symbol.to_s + "]"
+    end
   end
 end
