@@ -14,7 +14,6 @@ Players can also organize themselves into Corporations, and place listings for e
 
 Pre-MVP with not ETA on alpha testing.  If you are interested in being part of the alpha test or helping with development, please contact MichelV69 here on Github.
 
-### Technical
 * Ruby version
   ruby-3.1
 
@@ -34,4 +33,3 @@ Pre-MVP with not ETA on alpha testing.  If you are interested in being part of t
 
 * How to run the test suite
     rake test:system
-
