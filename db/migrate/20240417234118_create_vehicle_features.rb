@@ -7,5 +7,6 @@ class CreateVehicleFeatures < ActiveRecord::Migration[7.1]
 
       t.timestamps
     end
+  add_reference :vehicle_features, :ship_data_card, index: true, null: false, foreign_key: true
   end
 end

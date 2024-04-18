@@ -1,6 +1,7 @@
 class ShipDataCard < ApplicationRecord
   belongs_to :user
   has_many :vehicle_roles, dependent: :destroy
+  has_many :vehicle_features, dependent: :destroy
 
   CoreSizeList = ["--", "XS", "S", "M", "L"]
 
