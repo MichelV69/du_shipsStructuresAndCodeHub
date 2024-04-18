@@ -43,6 +43,17 @@ class VehicleFeatureTest < ActiveSupport::TestCase
     assert_equal 3, vf_list.count, "Wrong list count"
   end
 
-  #{detailed_interior: 1, radar_atmo: 2, radar_space: 3, dsat: 4, warp_drive: 5,
-  #  rocket_engines: 6, shields: 7, weapons:8, antigrav: 9, tile_scanner: 2}
+  test "the model recognizes a list of different features" do
+    feature_test_list = {detailed_interior: 1, radar_atmo: 2, radar_space: 3, dsat: 4, warp_drive: 5,
+    rocket_engines: 6, shields: 7, weapons:8, antigrav: 9, tile_scanner: 2}
+
+    vf = VehicleFeature.new
+    vf.ship_data_card_id = @sdc.id
+
+    feature_test_list.each do |key, value|
+      puts key.to_s
+      vf.set_feature_by_sym(key)
+      assert_equal value, vf.feature_id
+    end
+  end
 end
