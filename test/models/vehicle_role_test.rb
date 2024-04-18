@@ -45,13 +45,15 @@ class VehicleRoleTest < ActiveSupport::TestCase
 
   test "the model recognizes a list of different roles" do
     role_test_list = {pvp_combat: 1, pve_combat: 2, hauler: 3, courier: 4, carrier: 5,
-    racer: 6, pocket: 7, prospector: 8, tile_scanner: 9 }
+    racer: 6, pocket: 7, prospector: 8, tile_scanner: 9}
 
     vr = VehicleRole.new
     vr.ship_data_card_id = @sdc.id
 
-    role_test_list.keys.each do |k|
-      assert vr.set_role_by_sym(k), "Unable to set ${k}"
+    role_test_list.each do |key, value|
+      # puts key.to_s
+      vr.set_role_by_sym(key)
+      assert_equal value, vr.role_name
     end
   end
 end
