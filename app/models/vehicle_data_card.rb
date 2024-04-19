@@ -1,4 +1,4 @@
-class ShipDataCard < ApplicationRecord
+class VehicleDataCard < ApplicationRecord
   belongs_to :user
   has_many :vehicle_roles, dependent: :destroy
   has_many :vehicle_features, dependent: :destroy

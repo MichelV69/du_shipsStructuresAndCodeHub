@@ -1,6 +1,6 @@
 require "test_helper"
 
-class ShipDataCardControllerTest < ActionDispatch::IntegrationTest
+class VehicleDataCardControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end

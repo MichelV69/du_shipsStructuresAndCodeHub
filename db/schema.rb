@@ -23,19 +23,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_17_234118) do
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
-  create_table "ship_data_cards", force: :cascade do |t|
-    t.integer "user_id"
-    t.string "design_name", null: false
-    t.integer "price_blueprint"
-    t.integer "price_token"
-    t.integer "core_size"
-    t.boolean "env_atmosphere"
-    t.boolean "env_ground"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.boolean "env_space"
-  end
-
   create_table "users", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -49,27 +36,38 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_17_234118) do
     t.index ["remember_token"], name: "index_users_on_remember_token", unique: true
   end
 
+  create_table "vehicle_data_cards", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "design_name", null: false
+    t.integer "price_blueprint"
+    t.integer "price_token"
+    t.integer "core_size"
+    t.boolean "env_atmosphere"
+    t.boolean "env_ground"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "env_space"
+  end
+
   create_table "vehicle_features", force: :cascade do |t|
-    t.integer "ship_data_card"
     t.integer "feature_id"
     t.string "feature_description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "ship_data_card_id", null: false
-    t.index ["ship_data_card_id"], name: "index_vehicle_features_on_ship_data_card_id"
+    t.integer "vehicle_data_card_id", null: false
+    t.index ["vehicle_data_card_id"], name: "index_vehicle_features_on_vehicle_data_card_id"
   end
 
   create_table "vehicle_roles", force: :cascade do |t|
-    t.integer "ship_data_card"
-    t.integer "role_name"
+    t.integer "role_id"
     t.string "role_description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "ship_data_card_id", null: false
-    t.index ["ship_data_card_id"], name: "index_vehicle_roles_on_ship_data_card_id"
+    t.integer "vehicle_data_card_id", null: false
+    t.index ["vehicle_data_card_id"], name: "index_vehicle_roles_on_vehicle_data_card_id"
   end
 
   add_foreign_key "profiles", "users"
-  add_foreign_key "vehicle_features", "ship_data_cards"
-  add_foreign_key "vehicle_roles", "ship_data_cards"
+  add_foreign_key "vehicle_features", "vehicle_data_cards"
+  add_foreign_key "vehicle_roles", "vehicle_data_cards"
 end
