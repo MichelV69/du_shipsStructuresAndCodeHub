@@ -35,3 +35,6 @@
 /config/master.key
 /node_modules/*
 /vendor/bundle/*
+
+#apple stuff
+.DS_Store
