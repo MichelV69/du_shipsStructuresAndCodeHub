@@ -1,0 +1,2 @@
+class VehicleDataCardController < ApplicationController
+end

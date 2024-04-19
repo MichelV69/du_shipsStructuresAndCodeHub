@@ -1,0 +1,2 @@
+module VehicleDataCardHelper
+end

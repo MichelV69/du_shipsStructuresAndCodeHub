@@ -1,6 +1,6 @@
-class CreateShipDataCards < ActiveRecord::Migration[7.1]
+class CreateVehicleDataCards < ActiveRecord::Migration[7.1]
   def change
-    create_table :ship_data_cards do |t|
+    create_table :vehicle_data_cards do |t|
       t.integer :user_id
       t.string  :design_name
       t.integer :price_blueprint
