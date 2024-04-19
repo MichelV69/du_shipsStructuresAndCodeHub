@@ -2,7 +2,7 @@ class VehicleDataCard < ApplicationRecord
   belongs_to  :user
   has_many    :vehicle_roles, dependent: :destroy
   has_many    :vehicle_features, dependent: :destroy
-  has_one     :vehicle_data_card, dependent: :destroy
+  has_many    :vehicle_data_card, dependent: :destroy
 
   CoreSizeList = ["--", "XS", "S", "M", "L"]
 
