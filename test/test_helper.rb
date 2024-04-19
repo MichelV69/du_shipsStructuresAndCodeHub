@@ -11,5 +11,7 @@ module ActiveSupport
     fixtures :all
 
     # Add more helper methods to be used by all tests here...
+    @screen_hd =  [1280,  720]
+    @screen_fhd = [1920, 1080]
   end
 end
