@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_17_234118) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_19_015620) do
   create_table "profiles", force: :cascade do |t|
     t.string "discord_id"
     t.string "steam_id"
@@ -34,6 +34,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_17_234118) do
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["id"], name: "index_users_on_id", unique: true
     t.index ["remember_token"], name: "index_users_on_remember_token", unique: true
+  end
+
+  create_table "vehicle_attributes_cards", force: :cascade do |t|
+    t.integer "attribute_id"
+    t.string "attribute_description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "vehicle_data_card_id", null: false
+    t.index ["vehicle_data_card_id"], name: "index_vehicle_attributes_cards_on_vehicle_data_card_id"
   end
 
   create_table "vehicle_data_cards", force: :cascade do |t|
@@ -68,6 +77,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_17_234118) do
   end
 
   add_foreign_key "profiles", "users"
+  add_foreign_key "vehicle_attributes_cards", "vehicle_data_cards"
   add_foreign_key "vehicle_features", "vehicle_data_cards"
   add_foreign_key "vehicle_roles", "vehicle_data_cards"
 end

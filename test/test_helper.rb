@@ -1,6 +1,7 @@
 ENV["RAILS_ENV"] ||= "test"
 require_relative "../config/environment"
 require "rails/test_help"
+require "clearance/test_unit"
 
 module ActiveSupport
   class TestCase
@@ -11,5 +12,7 @@ module ActiveSupport
     fixtures :all
 
     # Add more helper methods to be used by all tests here...
+    @screen_hd =  [1280,  720]
+    @screen_fhd = [1920, 1080]
   end
 end
