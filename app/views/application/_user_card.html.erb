@@ -1,0 +1,11 @@
+<div class="user_card">
+    <% if signed_in? %>
+        Signed in as: <%= current_user.full_name %> < <%= current_user.email %> >
+    <%= button_to "Sign out", sign_out_path, method: :delete %>
+    <% else %>
+    <div class="login_prompt">
+        <h3>Not signed in</h3>
+        <%= link_to "Sign in, please", sign_in_path %>
+    </div>
+    <% end %>
+</div>
