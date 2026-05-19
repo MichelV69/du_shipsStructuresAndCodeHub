@@ -6,7 +6,7 @@
   },
   "dependencies": {
     "postcss": "^8.4.38",
-    "turbo": "^1.13.2"
+    "turbo": "^2.9.14"
   },
   "scripts": {
     "build": "esbuild app/javascript/*.* --bundle --sourcemap --format=esm --outdir=app/assets/builds --public-path=/assets",
